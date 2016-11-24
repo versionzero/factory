@@ -12,7 +12,12 @@ class ProductViewSet(viewsets.ModelViewSet):
     API endpoint that allows products to be viewed or edited.
     """
     queryset = models.Product.objects.all()
+    filter_class = filters.ProductFilter
     serializer_class = serializers.ProductSerializer
+    filter_backends = (
+        django_filters.rest_framework.DjangoFilterBackend,
+        rest_filters.SearchFilter,)
+    search_fields = ('name', 'description')
 
 
 class InventoryItemViewSet(viewsets.ModelViewSet):
