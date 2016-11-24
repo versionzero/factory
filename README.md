@@ -86,3 +86,14 @@ http://localhost:8888/products/?price__gte=400
 ...
 ```
 
+To delete an item, open a terminal and use the following (assuming product with the primary key of 3 exists):
+
+```
+curl -XDELETE http://localhost:8888/products/3/
+```
+
+Or, to delete an item in the inventory, run the following:
+
+```
+curl -XDELETE http://localhost:8888/inventory/6/
+```
