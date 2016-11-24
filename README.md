@@ -25,7 +25,7 @@ Now, install the dependencies and bring them in to the current environment:
 ```
 cd factory
 make install
-. ~/venvs/factory/bin/deactivate
+. ~/venvs/factory/bin/activate
 ```
 
 Lastly, launch the web-server:
