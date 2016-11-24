@@ -81,12 +81,12 @@ http://localhost:8888/inventory/?search=IDE
 <p>A few other examples of queries are:</p>
 
 <p><code>
-    http://localhost:8888/inventory/?quantity__lt=11
+http://localhost:8888/inventory/?quantity__lt=11
 </code></p>
 <p><code>
 http://localhost:8888/products/?name__contains=IDEA
 </code></p>
-<p><code>   
+<p><code>
 http://localhost:8888/products/?description__contains=intelligent
 </code></p>
 <p><code>
@@ -94,4 +94,16 @@ http://localhost:8888/products/?price__gte=400
 </code></p>
 <p><code>
 ...
+</code></p>
+    
+<p>To delete an item, open a terminal and use the following (assuming a product with the primary key of 3 exists):</p>
+
+<p><code>
+curl -XDELETE http://localhost:8888/products/3/
+</code></p>
+
+<p>Or, to delete an item in the inventory, run the following:</p>
+
+<p><code>
+curl -XDELETE http://localhost:8888/inventory/6/
 </code></p>
