@@ -1,0 +1,97 @@
+<h1>About</h1>
+
+<p>This project manages a simple inventory for a factory:</p>
+
+<ul>
+<li>Allow users to define/query product types</li>
+<li>Allow users to add/remove items from the inventory.</li>
+<li>Allow users to query the inventory</li>
+</ul>
+
+<h1>Installation</h1>
+
+<p>The following will help install and configure the project. First, clone the repository:</p>
+
+<p><code>
+git clone https://github.com/versionzero/factory
+</code></p>
+
+<p>Next, make sure that <code>make</code> is installed locally:</p>
+
+<p><code>
+sudo apt-get install build-essential
+</code></p>
+
+<p>Now, install the dependencies and bring them in to the current environment:</p>
+
+<p><code>
+cd factory
+make install
+. ~/venvs/factory/bin/activate
+</code></p>
+
+<p>Lastly, launch the web-server:</p>
+
+<p><code>
+make start
+</code></p>
+
+<h1>Using the web-interface</h1>
+
+<p>There are a number of ways in which the interface can be used. For instance, a listing of the RESTful URLs can be seen by visiting the following in a web-browser:</p>
+
+<p><code>
+http://localhost:8888/
+</code></p>
+
+<p>Products and inventory items can be listed using the following URLs, respectivelly:</p>
+
+<p><code>
+http://localhost:8888/products/
+</code></p>
+
+<p>and</p>
+
+<p><code>
+http://localhost:8888/inventory/
+</code></p>
+
+<p>In both either case, products and inventory items can be added by using the form at the bottom of the page.</p>
+
+<p>Similarly, both endpoints can filter and search for a subset of results. For instance, to retrive a list of products that cost more than $30, the following can be used:</p>
+
+<p><code>
+http://localhost:8888/products/?price__gt=30
+</code></p>
+
+<p>To find all the products with the word <code>Storm</code> contained within them, use the following:</p>
+
+<p><code>
+http://localhost:8888/products/?search=Storm
+</code></p>
+
+<p>A similar query can be used to look up items in the inventory:</p>
+
+<p><code>
+http://localhost:8888/inventory/?search=IDE
+</code></p>
+
+<p>The above returns a subset of the inventory where <code>ISD</code> is contained in the product that is inventoried, rather than any field in the inventory item itself.</p>
+
+<p>A few other examples of queries are:</p>
+
+<p><code>
+    http://localhost:8888/inventory/?quantity__lt=11
+</code></p>
+<p><code>
+http://localhost:8888/products/?name__contains=IDEA
+</code></p>
+<p><code>   
+http://localhost:8888/products/?description__contains=intelligent
+</code></p>
+<p><code>
+http://localhost:8888/products/?price__gte=400
+</code></p>
+<p><code>
+...
+</code></p>
